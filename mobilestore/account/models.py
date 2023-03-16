@@ -9,11 +9,11 @@ class CustUser(AbstractUser):
     image=models.ImageField(upload_to="profile_image",null=True)
     options=(
 
-        {"Store","Store"},
-        {"Customer","Customer"},
+        ("Store","Store"),
+        ("Customer","Customer"),
     )
 
-    usertype=models.CharField(max_length=100,choices=options,default="CustUser")
+    usertype=models.CharField(max_length=100,choices=options,default="Customer")
 
 
 

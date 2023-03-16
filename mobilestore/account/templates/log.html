@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcHBwgHBwcHBwcNBw0NDQcHBw8ICQcNFREWFhURHx8YKCggGCYlJx8VITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NDisZFRkrLS03KysrKysrKy0rKysrLS0rKystKysrKy0tKystKysrKysrKystKysrKysrKysrK//AABEIAJ8BPgMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAgAHBv/EABUQAQEAAAAAAAAAAAAAAAAAAAAB/8QAGQEBAQEBAQEAAAAAAAAAAAAAAgYBAwcF/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/APegh9B54AQ0mTSK0oKGoIoBTU0igoKaUOCimppQoKK1FKHBU01NKHBU01NKHBU00U4cFTTU0ocFTTU04cFTTU0ocFTTRThxNFNTShwVNNTShwVNNFKHBU01NOFBQ1BHHv2YJdGhmBFBRTUtKMkikUFSaKUKBNNFKHBU01NKFGqaamlDgqaamlDgqaaKcOJopqaUOCppqaUOCppqacdIKmmppQ4KK1FOFBU01NKOkFTTU0oUFFNTShwVNNScOMk0EUdASQl0awrCtKChgRQCmppFBRTU0ocFFNTShQUVqKRwVNNTShwVNNTShwUVqKcOCppqaUOCppqacOCppqaUOCppopw4KmmppQ4KmmppQ4KmmilDgqaamnCgorCkcFFNSUKOgMwS6NgopqWwoARSKCpNFIoKK1FKHBU01NKFGqaamlDgqaamlDgqaaKcOJopqaUOCppqacOCppqaUdIKmmppQ4KKamnCgqaamlHSCppqaUKCimppQ4Kmmppw41TTRShQVJSRx0JNIqWRkFSaKRQClNKFBQamkcappqaUKCimppQ4KmmppQ4KmmppQ4KK1FOHBU01NKHBU01NOHBU01NKHBU00UocFTTU04cFTTU0ocFTTU0ocappqacKCisKRwUU1JQoAwIo6DRTUpZGwAgigqaaKRQCtRShwVNNFKFBU01NKHBU01NKHBU01NOHGqaamlDgqaamlDgqaamnDgqaamlHSCimppwoKmmppR0gqaamlCgorVNKHGqaamnDjJpopQoKmmpI41DBrY6DUkJdGwCmppQoKCmlDgopqaUKCgppQ4KmmppQ4KmmppQ4KK1FOHBU01NKHBU01NOHBU01NKHBU00UocFTTU04cFTTU0ocFTTRShxNFNTThQUMCOCimpKFBQ1BG1SQ1roAIqXRsFTTQRQCtRShwVNNFKFAmmppQ4KmmppQ5BU01NOHBRTU0ocFTTU0ocFTTamnDgqaamlHSCitRThQVNNTSjpBU01NKFGqaamlDgqaamnDjVNNFIoKmlJHGDBrYKGoInQaKampeI2AU1NI41TTU0oUApqaUOCppqaUOCppqaUOCitRThwVNNTShwVNNTThwVNNTShwVNNFKHBU01NOHBU01NKHBRWopHBU01NOFBQ1BHBRTU0oUFDAiZNKa0owYEToNTSKl0bBRWopQ4KmmilCgqaamlDgqaamlDgqaaKcOCppqaUOCppqaUOCppqacOCppqaUdIKKamnCgqaamlHSQVNNTShRqmmppQ4Kmmppw41TSKRQVNKaRxgwaUFBqSawZmk//9k=");
+  background-size: cover;
+  background-position: bottom;
+       
+      }
+
+      img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+      .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgb(235, 193, 231);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: black;
+        margin-bottom: 20px;
+      }
+
+      input[type="submit"] {
+        background-color: #476c9c;
+        color: rgb(8, 7, 7);
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0069d9;
+      }
+
+      h1 {
+  font-size: 2rem;
+  color: rgb(49, 58, 58);
+  text-align: center;
+  margin: 2rem 0;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>SIGN IN</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" placeholder="Enter your username">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password">
+        <input type="submit" value="Log In">
+      </form>
+    </div>
+  </body>
+</html>
