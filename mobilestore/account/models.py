@@ -17,4 +17,17 @@ class CustUser(AbstractUser):
 
 
 
+# class Mobile(models.Model):
+#     name = models.CharField(max_length=255)
+#     brand = models.CharField(max_length=255)
+#     price = models.FloatField()
+#     description = models.TextField()
+#     image = models.ImageField(upload_to='mobile_images/', default='mobile_images/default.jpg')
+
+#     def __str__(self):
+#         return self.name
+
+
+
+
 

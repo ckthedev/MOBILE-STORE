@@ -31,9 +31,12 @@ class LogView(FormView):
             if user is not None:
                 login(req, user)
                 messages.success(req, "Login SuccessFull!!")
-                return redirect("home")
+                return redirect("Mainhome")
             else:
                 messages.error(req, "Login Failed!!")
-                return render(req, self.template_name, {"form": form})
+                return render("log.html", {"form": form})
         else:
             return self.form_invalid(form)
+
+
+
