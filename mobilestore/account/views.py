@@ -29,8 +29,8 @@ class LogView(FormView):
             ut=form_data.cleaned_data.get("usertype")
             user=authenticate(request,username=un,password=pw,usertype=ut)
             if user:
-                if ut=="Store":
-                    login(request,user)
+                login(request,user)
+                if request.user.usertype=="Store":
                     return redirect('store')
                 else:
                     login(request,user)
