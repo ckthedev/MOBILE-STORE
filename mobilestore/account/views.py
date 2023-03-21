@@ -19,24 +19,26 @@ class Reg(CreateView):
     success_url = reverse_lazy('home')
 
 class LogView(FormView):
-    template_name="log.html"
+    template_name='log.html'
     form_class=LogForm
-    
-    def post(self, req, *args, **kwargs):
-        form = self.get_form()
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            user = authenticate(req, username=username, password=password)
-            if user is not None:
-                login(req, user)
-                messages.success(req, "Login SuccessFull!!")
-                return redirect("Mainhome")
+    def post(self,request,*args,**kwargs):
+        form_data=LogForm(data=request.POST)
+        if form_data.is_valid():
+            un=form_data.cleaned_data.get("username")
+            pw=form_data.cleaned_data.get("password")
+            ut=form_data.cleaned_data.get("usertype")
+            user=authenticate(request,username=un,password=pw,usertype=ut)
+            if user:
+                if ut=="Store":
+                    login(request,user)
+                    return redirect('store')
+                else:
+                    login(request,user)
+                    return redirect("customer")
             else:
-                messages.error(req, "Login Failed!!")
-                return render("log.html", {"form": form})
+                return render(request,'log.html',{"form":form_data})
         else:
-            return self.form_invalid(form)
+            return render(request,'log.html',{"form":form_data})
 
 
 
