@@ -5,7 +5,7 @@ from .models import CustUser
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 
 class home_view(TemplateView):
@@ -40,5 +40,8 @@ class LogView(FormView):
         else:
             return render(request,'log.html',{"form":form_data})
 
-
+class LogOut(View):
+    def get(self,req):
+        logout(req)
+        return redirect('log')
 

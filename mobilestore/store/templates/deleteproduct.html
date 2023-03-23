@@ -1,0 +1,18 @@
+{% extends 'nav.html' %}
+{% block nav %}
+<h1 class="bg-danger text-center">Confirm Removal</h1>
+<h4>do you really want to remove this?</h4>
+{% if object.Mobile %}
+<div class="container">
+  <h1 class="text-center">{{object.Name}}</h1>
+      <img class="card-img-top" src="{{object.Mobile.url}}" alt="Card image cap">
+{% endif %}
+      <form  method="post">
+        {% csrf_token %}
+        <div class="container">
+            <button class="btn-danger">YES</button>
+        </div>
+      </form>
+</div>
+
+{% endblock %}
