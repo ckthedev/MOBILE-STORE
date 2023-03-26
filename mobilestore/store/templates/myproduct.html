@@ -1,24 +1,88 @@
 {% extends 'nav.html' %}
+
 {% block nav %}
-    <div class="row">
-      {% for i in data %}
-      <div class="col-md-3 ml-3"> 
-      
-      <div class="card mt-2 ml-1" style="width: 18rem;">
-      <img class="card-img-top" height="180px" src="{{i.Mobile.url}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{i.Name}}</h5>
-        <h6 class="card-text"><span class="material-symbols-rounded">
-          currency_rupee
-          </span>{{i.prize}}</h6>
-      </div>
-      <div class="footer">
-        <a href="{% url 'updatepro' i.id %}" class="btn btn-warning mb-1 ml-3">Update</a>
-        <a href="{% url 'deletepro' i.id %}" class="btn btn-danger mb-1 ml-5">Remove</a>
-      </div>
+    <div class="container-fluid">
+        <h1 class="text-center mb-5">Browse Our Products</h1>
+        <div class="row">
+            {% for i in data %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ i.Mobile.url }}" class="card-img-top" alt="{{ i.Name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i.Name }}</h5>
+                        <p class="card-text">{{ i.Description }}</p>
+                        <h6 class="card-text"><span class="material-symbols-rounded">currency_rupee</span>{{ i.prize }}</h6>
+                        <a href="{% url 'updatepro' i.id %}" class="btn btn-warning mr-2">Edit</a>
+                        <a href="{% url 'deletepro' i.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    
-  </div>
-  {% endfor %}
-  </div>
+{% endblock %}
+
+{% block css %}
+    <style>
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 250px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            background-color: #ffca2c;
+            border-color: #ffca2c;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }s
+
+        .btn-danger:hover {
+            background-color: #09fde9;
+            border-color: #e4606d;
+        }
+
+        .material-symbols-rounded::before {
+            font-family: "Material Icons Round";
+            content: attr(class);
+        }
+    </style>
 {% endblock %}

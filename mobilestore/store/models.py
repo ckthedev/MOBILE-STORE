@@ -11,3 +11,4 @@ class Products(models.Model):
     rom=models.IntegerField(null=True)
     processer=models.CharField(max_length=100,null=True)
     user=models.ForeignKey(CustUser,on_delete=models.CASCADE,related_name="m_store")
+
