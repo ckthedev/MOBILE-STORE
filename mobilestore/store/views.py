@@ -4,6 +4,7 @@ from .models import Products
 from .forms import *
 from django.urls import reverse_lazy
 from django.contrib.admin.views.decorators import staff_member_required
+from customer.models import Review
 
 # Create your views here.
 class StoreHome(TemplateView):
@@ -41,4 +42,11 @@ class DeleteProduct(DeleteView):
     template_name='deleteproduct.html'
     success_url=reverse_lazy('myproduct')
 
-  
+class ReviewProd(TemplateView):
+    template_name='reviewprod.html'
+    def get_context_data(self, **kwargs):
+        id=kwargs.get('pk')
+        context=super().get_context_data(**kwargs)
+        context["data"]=Products.objects.get(id=id)
+        context['review']=Review.objects.all()
+        return context

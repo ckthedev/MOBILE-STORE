@@ -51,8 +51,16 @@ def addcart(request,*args,**kwargs):
     id=kwargs.get("pid")
     mobile=Products.objects.get(id=id)
     user=request.user
-    Cart.objects.create(mobile=mobile,user=user)
-    return redirect('customer')
+    if Cart.objects.filter(mobile=mobile,user=request.user):
+        messages.success(request,"already carted")
+        return redirect('customer')
+    else:
+        Cart.objects.create(mobile=mobile,user=user)
+        return redirect("customer")
+
+
+
+
 
 def delcart(request,*args,**kwargs):
     id=kwargs.get("pid")

@@ -17,4 +17,90 @@
   </div>
   {% endfor %}
   </div>
+  <style>
+    /* Style for card */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card .card-img-top {
+  object-fit: cover;
+}
+
+.card .card-body {
+  padding: 1rem;
+}
+
+.card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card .card-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .material-symbols-rounded {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/* Style for buttons */
+.btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+
+.btn-warning:hover {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+/* Style for row and column */
+.row {
+  margin: 2rem 0;
+}
+
+.col-md-3 {
+  padding: 0 0.5rem;
+}
+
+  </style>
 {% endblock %}

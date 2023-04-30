@@ -1,0 +1,98 @@
+{% extends 'nav.html' %}
+{% block nav %}
+
+<div class="container">
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <img class="card-img-top" src="{{data.Mobile.url}}" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">{{data.Name}}</h3>
+              <h6 class="card-text"><span class="material-symbols-rounded">
+                currency_rupee
+                </span>{{data.prize}}</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">RAM:{{data.ram}}GB</li>
+              <li class="list-group-item">ROM:{{data.rom}}GB</li>
+              <li class="list-group-item">{{data.processer}} processor</li>
+            </ul>
+          </div>
+        <div class="footer">
+            <button class="btn btn-success btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Reviews
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body"> 
+              {% for r in review %}
+                {% if r.product.Mobile == data.Mobile %}
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">{{r.comment}}</h4>
+                  <p class="card-text"><strong>Posted on:</strong>{{r.datetime}}</p>
+                  <p class="card-text"><strong>Posted by:</strong>{{r.user.first_name}}</p>
+                </div>
+              </div>
+                {% endif %}
+              {% endfor %}
+              
+            </div>
+            
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+<style>
+    .card {
+  margin: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 350px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.list-group-item {
+  font-size: 18px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.collapse {
+  margin-top: 20px;
+}
+
+</style>
+{% endblock %}

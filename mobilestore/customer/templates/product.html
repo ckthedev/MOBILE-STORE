@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10">
+        <class class="col-md-10">
             <div class="card">
                 <img class="card-img-top" src="{{ data.Mobile.url }}" alt="Card image cap">
                 <div class="card-body">
@@ -39,20 +39,26 @@
                             </table>
                         </form>
 
-                        <hr>
-
-                        <h4>Reviews</h4>
-                        {% for review in reviews %}
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ review.user.first_name }}</h5>
-                                    <p class="card-text">{{ review.comment }}</p>
-                                    <p class="card-text"><small class="text-muted">{{ review.datetime }}</small></p>
-                                </div>
-                            </div>
-                        {% empty %}
-                            <p>No reviews yet.</p>
-                        {% endfor %}
+                        {% for review in review %}
+                        {% if review.product.Mobile == data.Mobile %}
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">{{review.comment}}</h4>
+                          <p class="card-text"><strong>Posted on:</strong>{{review.datetime}}</p>
+                          <p class="card-text"><strong>Posted by:</strong>{{review.user.first_name}}</p>
+                        </div>
+                      </div>
+                        {% endif %}
+                      {% endfor %}
+                      </div>
+                      </div>
+                      </div>
+                      </class>
+                      </div>
+                      </div>
+                      
+                    
+                      
                     </div>
                 </div>
             </div>
